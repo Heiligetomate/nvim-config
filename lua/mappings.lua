@@ -32,3 +32,5 @@ vim.keymap.set("n", "<leader>u", function()
 	local word = vim.fn.expand("<cWORD>")
 	vim.fn.jobstart({ "xdg-open", word }, { detach = true })
 end, { desc = "Open URL under cursor" })
+
+vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>", { desc = "Clear search highlights" })
