@@ -34,3 +34,6 @@ vim.keymap.set("n", "<leader>u", function()
 end, { desc = "Open URL under cursor" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>", { desc = "Clear search highlights" })
+
+vim.keymap.set("n", "<leader>tr", "<cmd>Trouble lsp_references toggle<cr>", { desc = "Toggle References" })
+vim.keymap.set("n", "<leader>td", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Toggle Diagnostics" })

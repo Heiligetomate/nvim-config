@@ -54,4 +54,22 @@ return {
 		build = "bash -c 'cd app && npm install'",
 		cmd = { "MarkdownPreview" },
 	},
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = "Trouble",
+		config = function()
+			require("trouble").setup({
+				position = "float",
+				focus = true,
+				win = {
+					type = "float",
+
+					border = "rounded",
+					size = { width = 0.8, height = 0.4 },
+					position = { 0.5, 0.5 },
+				},
+			})
+		end,
+	},
 }
