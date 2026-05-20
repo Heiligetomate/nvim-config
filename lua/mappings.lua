@@ -5,15 +5,17 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map("n", "<S-Down>", ":m .+1<CR>==")
-map("n", "<S-Up>", ":m .-2<CR>==")
-map("v", "<S-Down>", ":m '>+1<CR>gv=gv")
-map("v", "<S-Up>", ":m '<-2<CR>gv=gv")
+map("n", "<S-Down>", ":m .+1<CR>==", { desc = "Move line down" })
+map("n", "<S-Up>", ":m .-2<CR>==", { desc = "Move line up" })
+map("v", "<S-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+map("v", "<S-Up>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
-map("n", "<S-Right>", ">>")
-map("n", "<S-Left>", "<<")
-map("v", "<S-Right>", ">gv")
-map("v", "<S-Left>", "<gv")
+map("n", "<S-Right>", ">>", { desc = "Indent" })
+map("n", "<S-Left>", "<<", { desc = "Unindent" })
+map("v", "<S-Right>", ">gv", { desc = "Indent selection" })
+map("v", "<S-Left>", "<gv", { desc = "Unindent selection" })
+
+map("n", "<leader>cs", "<cmd>Cheatsheet<cr>", { desc = "Cheatsheet" })
 
 vim.keymap.set("n", "<Esc>", function()
   vim.lsp.buf.clear_references()

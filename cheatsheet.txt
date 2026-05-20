@@ -1,0 +1,7 @@
+## Movement
+gg | Go to top
+G  | Go to bottom
+
+## LSP
+space ca | Code actions
+space rn | Rename
