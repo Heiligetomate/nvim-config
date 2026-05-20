@@ -77,4 +77,11 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim" },
     opts = {},
   },
+  {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    config = function()
+      vim.notify = require "notify"
+    end,
+  },
 }

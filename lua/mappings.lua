@@ -17,6 +17,20 @@ map("v", "<S-Left>", "<gv", { desc = "Unindent selection" })
 
 map("n", "<leader>cs", "<cmd>Cheatsheet<cr>", { desc = "Cheatsheet" })
 
+map("n", "<leader>n", "<Nop>")
+map("n", "<leader>nn", function()
+  require("notify").dismiss { silent = true, pending = true }
+end, { desc = "Clear notifications" })
+
+map("n", "<leader>nc", function()
+  local history = require("notify").history()
+  local last = history[#history]
+  if last then
+    vim.fn.setreg("+", table.concat(last.message, "\n"))
+    vim.notify("Copied!", vim.log.levels.INFO)
+  end
+end, { desc = "Copy last notification" })
+
 vim.keymap.set("n", "<Esc>", function()
   vim.lsp.buf.clear_references()
   for _, win in ipairs(vim.api.nvim_list_wins()) do
