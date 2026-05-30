@@ -73,6 +73,19 @@ map("n", "<leader>tc", "<cmd>tabclose<cr>", { desc = "Close tab" })
 map("n", "<leader>do", "<cmd>DiffviewOpen<cr>", { desc = "Open diff view" })
 map("n", "<leader>dc", "<cmd>DiffviewClose<cr>", { desc = "Close diff view" })
 
+map("n", "<leader>rs", function()
+  vim.cmd "normal crs"
+end, { desc = "snake_case" })
+map("n", "<leader>rc", function()
+  vim.cmd "normal crc"
+end, { desc = "camelCase" })
+map("n", "<leader>rm", function()
+  vim.cmd "normal crm"
+end, { desc = "MixedCase" })
+map("n", "<leader>ru", function()
+  vim.cmd "normal cru"
+end, { desc = "UPPER_CASE" })
+
 for i = 1, 9 do
   map("n", "<leader>t" .. i, i .. "gt", { desc = "Go to tab " .. i })
 end

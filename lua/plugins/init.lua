@@ -85,4 +85,6 @@ return {
     lazy = false,
     config = function() end,
   },
+
+  { "tpope/vim-abolish", lazy = false },
 }
