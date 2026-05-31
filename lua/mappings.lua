@@ -2,6 +2,8 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+map("i", "<C-f>", "∫", { desc = "Insert integral symbol" })
+map("i", "<C-e>", "\u{02E3}", { desc = "Insert ˣ" })
 map("n", "<C-q>", "<cmd>wq<cr>", { noremap = true, nowait = true, desc = "quit" })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
