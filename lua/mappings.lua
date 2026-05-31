@@ -1,4 +1,4 @@
-require "nvchad.mappings"
+require("nvchad.mappings")
 
 local map = vim.keymap.set
 
@@ -23,45 +23,45 @@ map("n", "<leader>cs", "<cmd>Cheatsheet<cr>", { desc = "Cheatsheet" })
 
 map("n", "<leader>n", "<Nop>")
 map("n", "<leader>nn", function()
-  require("notify").dismiss { silent = true, pending = true }
+	require("notify").dismiss({ silent = true, pending = true })
 end, { desc = "Clear notifications" })
 
 map("n", "<leader>nc", function()
-  local history = require("notify").history()
-  local last = history[#history]
-  if last then
-    vim.fn.setreg("+", table.concat(last.message, "\n"))
-    vim.notify("Copied!", vim.log.levels.INFO)
-  end
+	local history = require("notify").history()
+	local last = history[#history]
+	if last then
+		vim.fn.setreg("+", table.concat(last.message, "\n"))
+		vim.notify("Copied!", vim.log.levels.INFO)
+	end
 end, { desc = "Copy last notification" })
 
 map("n", "<Esc>", function()
-  vim.lsp.buf.clear_references()
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    if vim.api.nvim_win_get_config(win).relative ~= "" then
-      vim.api.nvim_win_close(win, true)
-    end
-  end
+	vim.lsp.buf.clear_references()
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		if vim.api.nvim_win_get_config(win).relative ~= "" then
+			vim.api.nvim_win_close(win, true)
+		end
+	end
 end)
 
 map("n", "<leader>cy", function()
-  local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line "." - 1 })
-  if #diagnostics == 0 then
-    return
-  end
-  local msg = table.concat(
-    vim.tbl_map(function(d)
-      return d.message
-    end, diagnostics),
-    "\n"
-  )
-  vim.fn.setreg("+", msg)
-  print("Copied diagnostic: " .. msg)
+	local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+	if #diagnostics == 0 then
+		return
+	end
+	local msg = table.concat(
+		vim.tbl_map(function(d)
+			return d.message
+		end, diagnostics),
+		"\n"
+	)
+	vim.fn.setreg("+", msg)
+	print("Copied diagnostic: " .. msg)
 end, { desc = "Copy diagnostic message" })
 
 map("n", "<leader>u", function()
-  local word = vim.fn.expand "<cWORD>"
-  vim.fn.jobstart({ "xdg-open", word }, { detach = true })
+	local word = vim.fn.expand("<cWORD>")
+	vim.fn.jobstart({ "xdg-open", word }, { detach = true })
 end, { desc = "Open URL under cursor" })
 
 map("n", "<Esc>", "<cmd>noh<cr>", { desc = "Clear search highlights" })
@@ -76,18 +76,18 @@ map("n", "<leader>do", "<cmd>DiffviewOpen<cr>", { desc = "Open diff view" })
 map("n", "<leader>dc", "<cmd>DiffviewClose<cr>", { desc = "Close diff view" })
 
 map("n", "<leader>rs", function()
-  vim.cmd "normal crs"
+	vim.cmd("normal crs")
 end, { desc = "snake_case" })
 map("n", "<leader>rc", function()
-  vim.cmd "normal crc"
+	vim.cmd("normal crc")
 end, { desc = "camelCase" })
 map("n", "<leader>rm", function()
-  vim.cmd "normal crm"
+	vim.cmd("normal crm")
 end, { desc = "MixedCase" })
 map("n", "<leader>ru", function()
-  vim.cmd "normal cru"
+	vim.cmd("normal cru")
 end, { desc = "UPPER_CASE" })
 
 for i = 1, 9 do
-  map("n", "<leader>t" .. i, i .. "gt", { desc = "Go to tab " .. i })
+	map("n", "<leader>t" .. i, i .. "gt", { desc = "Go to tab " .. i })
 end
