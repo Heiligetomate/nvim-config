@@ -87,4 +87,5 @@ return {
 	},
 
 	{ "tpope/vim-abolish", lazy = false },
+	{ "wakatime/vim-wakatime", lazy = false },
 }
