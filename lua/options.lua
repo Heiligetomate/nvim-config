@@ -1,6 +1,10 @@
 require("nvchad.options")
 
 vim.opt.swapfile = false
+
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+vim.opt.spelloptions = "camel"
 vim.diagnostic.config({
 	virtual_text = false,
 	signs = true,
