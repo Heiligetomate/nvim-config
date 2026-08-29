@@ -2,6 +2,13 @@ require("nvchad.options")
 
 vim.opt.swapfile = false
 
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.spell = false
+	end,
+})
+
 vim.opt.spell = true
 vim.opt.spelllang = "en_us"
 vim.opt.spelloptions = "camel"
